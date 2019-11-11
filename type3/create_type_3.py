@@ -7,9 +7,12 @@ def create_type_3(filename):
     # open file
     file = open(filename, "r")
 
+    # variables and stuff
     found = 0
     blank_line_count = 0
     str = ""
+
+    nodes = []  # to hold all the ast for each function???
 
     # parse to find def in file
     for line in file:
@@ -29,23 +32,10 @@ def create_type_3(filename):
 
         if blank_line_count == 2:
             # finished with a function, make an ast of it
-            print(str)
+            # print(str)
+            p = ast.parse(str)
+            print(ast.dump(p))
             str = ""
-
-
-    # # read from file line by line
-    # # create ast based off line???
-    # for line in file:
-    #     print(line)
-    #     try:
-    #         p = ast.parse(line)
-    #         print("parsed the thing")
-    #         # check the nodes for things???
-    #         for node in p.body:
-    #             pprint.pprint(node)
-    #     except:
-    #         print("that stupid error on ", line)
-    #
 
     # close file
     file.close()
