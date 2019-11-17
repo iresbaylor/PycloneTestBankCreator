@@ -7,6 +7,7 @@ from type1 import create_type_1 as type1
 from type2 import create_type_2 as type2
 from type3 import create_type_3 as type3
 
+
 def main():
     if len(argv) < 2:
         print('you must pass at least one python filename to the script')
@@ -14,12 +15,15 @@ def main():
 
     i = 1
     while i < len(sys.argv):
-        print("Creating type 1...")
+        print("\nSTART OF TYPE 1 ------------------------")
         type1.create_type_1(argv[i])
-        print("Creating type 2...")
+        print("END OF TYPE 1 --------------------------\n")
+        print("\nSTART OF TYPE 2 ------------------------")
         type2.create_type_2(argv[i])
-        print("Creating type 3...")
+        print("END OF TYPE 2 --------------------------\n")
+        print("\nSTART OF TYPE 3 ------------------------")
         type3.create_type_3(argv[i])
+        print("END OF TYPE 3 --------------------------\n")
         i = i+1
         print()
 
