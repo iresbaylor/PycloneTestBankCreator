@@ -19,10 +19,10 @@ def main():
         type1.create_type_1(argv[i])
         print("END OF TYPE 1 --------------------------\n")
         print("\nSTART OF TYPE 2 ------------------------")
-        #type2.create_type_2(argv[i])
+        type2.create_type_2(argv[i])
         print("END OF TYPE 2 --------------------------\n")
         print("\nSTART OF TYPE 3 ------------------------")
-        # type3.create_type_3(argv[i])
+        type3.create_type_3(argv[i])
         print("END OF TYPE 3 --------------------------\n")
         i = i+1
         print()
