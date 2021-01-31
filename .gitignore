@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # IDE files
 .idea/
 *.iml
@@ -7,3 +8,7 @@ venv/
 
 # Python
 **/__pycache__
+venv/
+
+# Clone files produced
+type1clones
