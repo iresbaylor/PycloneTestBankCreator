@@ -3,8 +3,10 @@ import ast
 import pprint
 import astor
 
+from logic.common import construct_output_file
 
-def create_type_2(filename):
+
+def create_type_2(filename, output_path):
     # read the file into an ast
     tree = astor.code_to_ast.parse_file(filename)
 
@@ -12,21 +14,24 @@ def create_type_2(filename):
     mod_tree = tree
 
     # print original tree
-    print(astor.dump_tree(mod_tree))
-
-    print("\n***\n")
+    # print(astor.dump_tree(mod_tree))
+    #
+    # print("\n***\n")
 
     # modify the variable names then print modified tree
     get_mod_tree(astor.dump_tree(mod_tree))
 
     # convert the modified tree dump to code
-    #astor.to_source(rename_variables(astor.dump_tree(mod_tree)), indent_with=' ' * 4, add_line_information=True)
+    # astor.to_source(rename_variables(astor.dump_tree(mod_tree), indent_with=' ' * 4, add_line_information=True))
 
     # print the modified code to the console from the tree
     # print(astor.to_source(mod_tree, indent_with=' ' * 4, add_line_information=False))
 
-    # return the modified tree
-    return mod_tree
+    # Construct & print output
+    print('printing output of type 2 comparison')
+    new_filename = construct_output_file(filename, output_path)
+    with open(new_filename, 'w') as fw:
+        fw.write(mod_tree.__str__())
 
 
 def get_mod_tree(tree):

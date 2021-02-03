@@ -9,7 +9,7 @@ venv/
 **/__pycache__
 
 # Clone files produced
-type1clones
+output/
 
 # Input files
 input/

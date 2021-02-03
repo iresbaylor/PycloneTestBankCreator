@@ -1,17 +1,19 @@
 import os
 import random
 
+from logic.common import construct_output_file
 
-def create_type_1(filename):
-    if not os.path.exists('type1clones'):
-        print('Creating type1clones directory...')
-        os.mkdir('type1clones')
+
+def create_type_1(filename, output_path):
     with open(filename) as fp:
         print('original file name: ' + filename)
-        newfilename = os.path.splitext(filename)[0]
-        newfilename = 'type1clones/' + newfilename + str(random.randint(0, 10000)) + '.py'
-        with open((newfilename), 'w') as fw:
-            print('printing clone of ' + filename + ' to: type1clones/' + newfilename + '.py')
+        print(os.path.splitext(filename))
+
+        # Construct the output file
+        new_filename = construct_output_file(filename, output_path)
+
+        with open(new_filename, 'w') as fw:
+            print('printing clone of ' + filename + ' to: ' + new_filename)
             line = fp.readline()
             linenumber = 1
             newlinenumber = 1
@@ -28,4 +30,4 @@ def create_type_1(filename):
                 line = fp.readline()
                 newlinenumber += 1
                 linenumber += 1
-            print('finished printing clone of ' + filename + ' to: type1clones/' + newfilename + '.py')
+            print('finished printing clone of ' + filename + ' to: type1clones/' + new_filename + '.py')

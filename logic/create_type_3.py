@@ -2,7 +2,7 @@ import astor
 import random
 
 
-def create_type_3(filename):
+def create_type_3(filename, output_path):
     p = astor.code_to_ast.parse_file(filename)
     modify_tree(astor.dump_tree(p))
 
